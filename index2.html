@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fun Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Comic Neue', cursive;
+      background: linear-gradient(135deg, #ffd6d6, #ffe6e6);
+      color: #333;
+      text-align: center;
+      padding: 40px 20px;
+      border: 10px dashed yellow;
+      /* border-width: 20%;
+       */
+       margin: 10vw;
+      animation: borderFlash 1s infinite alternate;
+    }
+
+    @keyframes borderFlash {
+      from { border-color: yellow; }
+      to { border-color: orange; }
+    }
+
+    h1 {
+      font-size: 3em;
+      color: #e60073;
+      text-shadow: 1px 1px #fff;
+      margin-top: 30px;
+      animation: bounce 1s ease infinite alternate;
+    }
+
+    @keyframes bounce {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-10px); }
+    }
+
+    p {
+      font-size: 1.6em;
+      line-height: 1.8em;
+      margin: 30px auto;
+      max-width: 800px;
+    }
+
+    a {
+      color: white;
+      background-color: #ff4081;
+      padding: 10px 20px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.2em;
+      display: inline-block;
+      margin-top: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: all 0.3s ease-in-out;
+    }
+
+    a:hover {
+      background-color: #c60055;
+      transform: scale(1.1);
+    }
+
+    @media (max-width: 600px) {
+      p {
+        font-size: 1.2em;
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 2em;
+      }
+
+      a {
+        font-size: 1em;
+        padding: 8px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <p>
+    We have received information from our undercover sources that you are attempting to cross the age barrier from <strong>18 to 19</strong> secretly, without informing your friends. 😏<br><br>
+    This kind of behavior is strictly prohibited in the <strong>Friendship Court of India</strong> and could result in temporary termination from your friend circle for up to 2 months. ⚠️<br><br>
+    But don’t worry — we’ve taken charge of the situation, and you’re safe for now. 😎<br>
+    Just don’t forget to share the cake next time. 🎂
+  </p>
+
+  <h1>CONGRATULATIONS 🥳</h1>
+
+  <p>
+    We have a surprise for you — <a href="whatsapp_page.html">click here</a> to get it!
+  </p>
+
+</body>
+</html>
