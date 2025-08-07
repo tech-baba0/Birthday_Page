@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WhatsApp_Page</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #e5ddd5;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      display: flex;
+      height: 100vh;
+    }
+
+    .sidebar {
+      width: 30%;
+      background: #f0f0f0;
+      border-right: 1px solid #ccc;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sidebar .header {
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #ededed;
+    }
+
+    .profile-pic,
+    .dp {
+      width: 40px;
+      height: 40px;
+      background: gray;
+      border-radius: 50%;
+    }
+
+    .profile-pic{
+      background-size: cover;
+      background-image: url('wp_profile.jpg');
+    }
+
+    .icons .material-icons {
+      margin-left: 10px;
+      cursor: pointer;
+    }
+
+    .search-box {
+      padding: 10px;
+      background: #fff;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 8px;
+      border-radius: 20px;
+      border: 1px solid #ccc;
+    }
+
+    .chat-list {
+      flex: 1;
+      overflow-y: auto;
+    }
+
+    .chat {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      cursor: pointer;
+      border-bottom: 1px solid #ddd;
+      background: #fff;
+    }
+
+    .chat:hover {
+      background: #f5f5f5;
+    }
+
+    .dp {
+      margin-right: 10px;
+      background-image: url('wp_grp_dp.jpg');
+      background-size: cover;
+    }
+
+    .chat-info {
+      flex: 1;
+    }
+
+    .chat-info h4 {
+      font-size: 16px;
+    }
+
+    .chat-info p {
+      color: #888;
+      font-size: 14px;
+    }
+
+    time {
+      font-size: 12px;
+      color: #999;
+    }
+
+    .chat-window {
+      width: 70%;
+      display: flex;
+      flex-direction: column;
+      background: #efeae2;
+    }
+
+    .chat-header {
+      padding: 10px;
+      background: #ededed;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .chat-user {
+      flex: 1;
+      margin-left: 10px;
+    }
+
+    .chat-user h4 {
+      margin-bottom: 4px;
+    }
+
+    .chat-messages {
+      flex: 1;
+      padding: 20px;
+      overflow-y: auto;
+      background-size: cover;
+    }
+
+    .message {
+      max-width: 60%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      clear: both;
+      font-size: 15px;
+      line-height: 1.4;
+      white-space: pre-wrap;
+    }
+
+    .sent {
+      background: #dcf8c6;
+      float: right;
+    }
+
+    .received {
+      background: #fff;
+      float: left;
+    }
+
+    .chat-input {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      background: #f0f0f0;
+    }
+
+    .chat-input input {
+      flex: 1;
+      padding: 10px;
+      border-radius: 20px;
+      border: none;
+      outline: none;
+      margin: 0 10px;
+    }
+
+    .send-option {
+      background-color: rgb(51, 198, 51);
+      height: 40px;
+      width: 40px;
+      border-radius: 50%;
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .send-option:hover {
+      background-color: rgb(16, 229, 144);
+    }
+
+    .blur-screen {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      backdrop-filter: blur(8px);
+      background: rgba(0, 0, 0, 0.6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      z-index: 10;
+      color: white;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .blur-screen p {
+      opacity: 0;
+      margin: 10px 0;
+      font-size: 1.4rem;
+      transition: opacity 1s ease-in-out;
+      text-align: center;
+    }
+
+    #button {
+      display: none;
+      background-color: red;
+      width: 12vw;
+      padding: 10px 20px;
+      color: aliceblue;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      border-radius: 25px;
+      border-color: red;
+      box-shadow: 0px 0px 12px red;
+      text-align: center;
+      text-decoration: none;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="sidebar">
+    <div class="header">
+      <div class="profile-pic"></div>
+      <p style="padding-left: 1vw;"><b>tech_baba</b></p>
+      <div class="icons">
+        <span class="material-icons">chat</span>
+        <span class="material-icons">more_vert</span>
+      </div>
+    </div>
+    <div class="search-box">
+      <input type="text" placeholder="Search or start new chat" />
+    </div>
+    <div class="chat-list">
+      <div class="chat">
+        <div class="dp"></div>
+        <div class="chat-info">
+          <h4>The Core Four ❤😇</h4>
+          <p style="color: green;"><b>Typing...</b></p>
+        </div>
+        <span class="time">12:15</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="chat-window">
+    <div class="chat-header">
+      <div class="dp"></div>
+      <div class="chat-user">
+        <h3>The Core Four ❤😇</h3>
+        <p>Barsha, Brishti, Sumon, Sujoy</p>
+      </div>
+      <div class="icons">
+        <span class="material-icons">search</span>
+        <span class="material-icons">more_vert</span>
+      </div>
+    </div>
+    <div class="chat-messages"></div>
+    <div class="chat-input">
+      <span class="material-icons">insert_emoticon</span>
+      <input type="text" placeholder="Type a message" />
+      <div class="send-option">
+        <span class="material-icons">send</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="blur-screen" id="blurScreen">
+  <p>But I didn’t.</p>
+  <p>I wanted to make something special.</p>
+  <p>Because you are special 🙂</p>
+  <p>So I made this...</p>
+  <a href="birthday_page.html" id="button">Click Me</a>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const input = document.querySelector(".chat-input input");
+  const blurScreen = document.getElementById("blurScreen");
+  const blurLines = blurScreen.querySelectorAll("p");
+  const chatBox = document.querySelector(".chat-messages");
+
+  chatBox.innerHTML = "";
+
+  const typingIndicator = document.createElement("div");
+  typingIndicator.textContent = "Typing...";
+  typingIndicator.style.fontStyle = "italic";
+  typingIndicator.style.color = "green";
+  typingIndicator.style.marginBottom = "10px";
+  typingIndicator.style.paddingLeft = "27vw";
+
+  function showTyping(sender) {
+    typingIndicator.textContent = `${sender} is typing...`;
+    if (!chatBox.contains(typingIndicator)) {
+      chatBox.appendChild(typingIndicator);
+    }
+    chatBox.scrollTop = chatBox.scrollHeight;
+  }
+
+  function hideTyping() {
+    if (typingIndicator.parentNode) {
+      chatBox.removeChild(typingIndicator);
+    }
+  }
+
+  function addMessage(sender, text, type, color) {
+    const message = document.createElement("div");
+    message.className = `message ${type}`;
+
+    const senderElem = document.createElement("div");
+    senderElem.textContent = sender;
+    senderElem.style.fontWeight = "bold";
+    senderElem.style.fontSize = "13px";
+    senderElem.style.marginBottom = "4px";
+    senderElem.style.color = color;
+
+    const msgText = document.createElement("div");
+    msgText.textContent = text;
+
+    message.appendChild(senderElem);
+    message.appendChild(msgText);
+    chatBox.appendChild(message);
+    chatBox.scrollTop = chatBox.scrollHeight;
+  }
+
+  const messages = [
+    { sender: "Brishti", text: "Ki khobor sob...?", type: "received", color: "purple" },
+    { sender: "Sujoy", text: "Khobor ar ki re...chole jacche oi..", type: "received", color: "green" },
+    { sender: "Sumon", text: "Chaper jibon..", type: "received", color: "orange" },
+    { sender: "Sumon", text: "Ki korchis sob?", type: "received", color: "orange" },
+    { sender: "Barsha", text: "Ajj koto tarikh bol to?🌝", type: "received", color: "blue" },
+    { sender: "Sujoy", text: "14th August...kno bol toh?", type: "received", color: "green" },
+    { sender: "Sumon", text: "Ki bepar?", type: "received", color: "orange" },
+    { sender: "Brishti", text: "Kichu mone porche nah?", type: "received", color: "purple" },
+    { sender: "Barsha", text: "Special kichu 🌝", type: "received", color: "blue" },
+    { sender: "Sumon", text: "🤔🧐", type: "received", color: "orange" },
+    { sender: "Sujoy", text: "Ohh vulei gechlam.... 🥲 \nAj to Pakistan er Independence day....", type: "received", color: "green" },
+    { sender: "Barsha", text: "Thikache ne tahole....\nPore kotha hobe👍", type: "received", color: "blue" },
+    { sender: "Brishti", text: "Tata 👋", type: "received", color: "purple" }
+  ];
+
+  // Delay settings
+  const baseDelay = 2500;
+  const typingDuration = 1500;
+  let totalDelay = 0;
+
+  messages.forEach((msg, i) => {
+    totalDelay += baseDelay;
+    setTimeout(() => {
+      showTyping(msg.sender);
+    }, totalDelay);
+
+    totalDelay += typingDuration;
+    setTimeout(() => {
+      hideTyping();
+      addMessage(msg.sender, msg.text, msg.type, msg.color);
+    }, totalDelay);
+  });
+
+  // Typing "Happy Birthday" after last message
+  const typingStartTime = totalDelay + 1500;
+  const text = "Happy birthday twinny 🥳🎂🍫🎈🎉...\nWish you a lot of happy returns of this day🤗...\nStay happy, stay safe..... 🙂";
+  let index = 0;
+
+  setTimeout(() => {
+    const typeInterval = setInterval(() => {
+      input.value = text.slice(0, index++);
+      if (index > text.length) {
+        clearInterval(typeInterval);
+        setTimeout(startDeleting, 1000);
+      }
+    }, 150);
+  }, typingStartTime);
+
+  // Deleting "Happy Birthday"
+  function startDeleting() {
+    let deleteIndex = text.length;
+    const deleteInterval = setInterval(() => {
+      input.value = text.slice(0, --deleteIndex);
+      if (deleteIndex < 0) {
+        clearInterval(deleteInterval);
+        setTimeout(() => {
+          showBlurScreen();
+        }, 800);
+      }
+    }, 100);
+  }
+
+  // Blur screen text reveal
+  function showBlurScreen() {
+    blurScreen.style.opacity = 1;
+    blurLines.forEach((line, i) => {
+      setTimeout(() => {
+        line.style.opacity = 1;
+        if (i === blurLines.length - 1) {
+          const button = document.getElementById("button");
+          setTimeout(() => {
+            button.style.display = "inline-block";
+          }, 1000);
+        }
+      }, i * 1500);
+    });
+  }
+});
+</script>
+
+
+</body>
+</html>
