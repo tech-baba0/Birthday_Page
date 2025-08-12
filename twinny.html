@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Twinny</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: rgba(255, 77, 77, 0.85);
+      padding: 20px;
+      color: white;
+      font-size: 28px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    main {
+      padding: 40px;
+      text-align: center;
+    }
+
+    /* Gallery */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      max-width: 900px;
+      margin: auto;
+    }
+    .gallery img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0px 5px 15px rgba(0,0,0,0.3);
+      transition: transform 0.3s;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    a.back-btn {
+      display: inline-block;
+      margin-top: 40px;
+      text-decoration: none;
+      background: #ff4f4f;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 25px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    a.back-btn:hover {
+      background: #d63031;
+    }
+
+    @media screen and (max-width: 1000px) {
+        img:hover{
+          /* position: static; */
+          height: 50vh;
+          width: 50vh;
+          transform: scale(2);
+          box-shadow: 0px 10px 20px rgba(0,0,0,0.3);
+      }
+      
+    }
+  </style>
+</head>
+<body>
+
+  <header>💖 Twinny 💖</header>
+
+  <main>
+    <h2>📸 Twinny's Beautiful Moments</h2>
+    <div class="gallery">
+      <img src="jr_01.jpg" alt="Photo 1">
+      <img src="jr_02.jpg" alt="Photo 2">
+      <img src="jr_03.jpg" alt="Photo 3">
+      <img src="jr_04.jpg" alt="Photo 4">
+      <img src="jr_05.jpg" alt="Photo 5">
+      <img src="jr_06.jpg" alt="Photo 6">
+      <img src="jr_07.jpg" alt="Photo 7">
+      <img src="jr_08.jpg" alt="Photo 8">
+      <img src="jr_09.jpg" alt="Photo 9">
+      <img src="jr_10.jpg" alt="Photo 10">
+      <img src="jr_11.jpg" alt="Photo 11">
+      <img src="jr_12.jpg" alt="Photo 12">
+      <img src="jr_13.jpg" alt="Photo 13">
+      <img src="jr_14.jpg" alt="Photo 14">
+      <img src="jr_15.jpg" alt="Photo 15">
+    </div>
+
+    <a class="back-btn" href="index.html">⬅ Back to Home</a>
+    <a class="back-btn" href="birthday_page.html">Back to Previous Page</a>
+  </main>
+
+</body>
+</html>
