@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Core Four </title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: rgba(255, 77, 77, 0.85);
+      padding: 20px;
+      color: white;
+      font-size: 28px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    main {
+      padding: 40px;
+      text-align: center;
+    }
+
+    /* Gallery */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      max-width: 900px;
+      margin: auto;
+    }
+    .gallery img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0px 5px 15px rgba(0,0,0,0.3);
+      transition: transform 0.3s;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    .timeline {
+      position: relative;
+      max-width: 900px;
+      margin: 60px auto;
+    }
+
+    .timeline::after {
+      content: '';
+      position: absolute;
+      width: 10px;
+      background-color: #ffffff;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .timeline-item {
+      padding: 20px 40px;
+      position: relative;
+      width: 50%;
+    }
+
+    .timeline-content {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+      position: relative;
+    }
+
+   
+    .timeline-item.right {
+      left: 49.5%;
+    }
+
+    .timeline-item.left {
+      left: -8.7%;
+    }
+    
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: #ff4f4f;
+      border: 4px solid white;
+      top: 30px;
+      border-radius: 50%;
+      z-index: 1;
+    }
+
+    .timeline-item.left::before {
+      right: -10px;
+    }
+
+    .timeline-item.right::before {
+      left: -10px;
+    }
+
+    
+    @media screen and (max-width: 768px) {
+      .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+      }
+      .timeline-item.right {
+        left: 0%;
+      }
+      .timeline::after {
+        left: 20px;
+      }
+      .timeline-item.left::before, .timeline-item.right::before {
+        left: 0px;
+      }
+    }
+
+    a.back-btn {
+      display: inline-block;
+      margin-top: 40px;
+      text-decoration: none;
+      background: #ff4f4f;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 25px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    a.back-btn:hover {
+      background: #d63031;
+    }
+
+     a.feedback {
+      display: inline-block;
+      margin-top: 40px;
+      text-decoration: none;
+      background: #3078e3;
+      color: white;
+      padding: 24px 48px;
+      border-radius: 25px;
+      font-weight: bold;
+      transition: background 0.3s;
+      animation: pulse 1.5s infinite ease-in-out;
+    }
+
+    a.feedback:hover {
+      background: #134499;
+    }
+
+    @keyframes pulse {
+    0% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.2); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.8; }
+  }
+
+    @media screen and (max-width: 1000px) {
+        img:hover{
+          /* position: static; */
+          height: 50vh;
+          width: 50vh;
+          transform: scale(2);
+          box-shadow: 0px 10px 20px rgba(0,0,0,0.3);
+      }
+      
+    }
+
+    footer{
+    margin-top: 5vh;
+    background-color: #e66490;
+    height: 150px;
+    /* width: 100vw; */
+    /* margin-left: -50px; */
+    text-align: center;
+    color: rgb(75, 87, 98);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 50px;
+}
+  </style>
+</head>
+<body>
+
+  <header>💖 The Core Four 💖</header>
+
+  <main>
+    <h2>📸 Our Beautiful Moments</h2>
+    <div class="gallery">
+      <img src="tcf_01.jpg" alt="Photo 1">
+      <img src="tcf_02.jpg" alt="Photo 2">
+      <img src="tcf_03.jpg" alt="Photo 3">
+      <img src="tcf_04.jpg" alt="Photo 4">
+      <img src="tcf_05.jpg" alt="Photo 5">
+      <img src="tcf_06.jpg" alt="Photo 6">
+      <img src="tcf_07.jpg" alt="Photo 7">
+      <img src="tcf_08.jpg" alt="Photo 8">
+      <img src="tcf_09.jpg" alt="Photo 9">
+      <img src="tcf_10.jpg" alt="Photo 10">
+      <img src="tcf_11.jpg" alt="Photo 11">
+      <img src="tcf_12.jpg" alt="Photo 12">
+      <img src="tcf_13.jpg" alt="Photo 13">
+      <img src="tcf_14.jpg" alt="Photo 14">
+      <img src="tcf_15.jpg" alt="Photo 15">
+      <img src="tcf_16.jpg" alt="Photo 16">
+      <img src="tcf_17.jpg" alt="Photo 17">
+    </div>
+
+    <h2 style="margin-top: 60px;">Timeline of Memories</h2>
+    <div class="timeline">
+      <div class="timeline-item left">
+        <div class="timeline-content">
+          <h3>2nd October, 2024</h3>
+          <p>First time we met - a moment to remember forever.</p>
+          <h4>ITI More, Kalyani</h4>
+        </div>
+      </div>
+      <div class="timeline-item right">
+        <div class="timeline-content">
+          <h3>22nd March, 2024</h3>
+          <p>Our first group trip together — unforgettable adventures</p>
+          <h4>Lahiri Babar Ashram</h4>
+        </div>
+      </div>
+      <div class="timeline-item left">
+        <div class="timeline-content">
+          <h3>26th April, 2025</h3>
+          <p>Our first cycle ride.</p>
+          <h4>Gangar Ghat, Kalyani</h4>
+        </div>
+      </div>
+      <div class="timeline-item right">
+        <div class="timeline-content">
+          <h3>3rd May, 2025</h3>
+          <p><b>Victoria Trip</b> — A lifetime memory.</p>
+          <h4>Victoria Memorial, Kolkata</h4>
+        </div>
+      </div>
+      <div class="timeline-item left">
+        <div class="timeline-content">
+          <h3>20th June, 2025</h3>
+          <p>Our unpredictable tour — <b>Dakshineswar Temple.</b> </p>
+          <h4>Dakshineswar, Kolkata</h4>
+        </div>
+      </div>
+    </div>
+
+    <h2>Hope this page be filled with thousand of memories like these...🤍</h2>
+
+    <a class="back-btn" href="index.html">⬅ Back to Home</a>
+    <a class="back-btn" href="birthday_page.html">Back to Previous Page</a>
+    <a class="back-btn" href="brishti.html">Brishti's Page</a>
+    <a class="back-btn" href="barsha.html">Barsha's Page</a>
+    <a class="back-btn" href="twinny.html">Twinny's Page</a><br>
+    <a class="feedback" href="https://docs.google.com/forms/d/e/1FAIpQLSexwfQo80FwcyQ--LeO_FP8iQq_iYtDCoqpyPuEq-C0cpQSSA/viewform?usp=header">Feedback</a>
+  </main>
+
+  <footer>
+        With love &hearts;,  <br>
+        from Tech_Baba.
+    </footer>
+
+</body>
+</html>
